@@ -2,7 +2,7 @@ import pool from './database.js';
 import bcrypt from 'bcrypt'; 
 
 // Handler function for the login api 
-export async function handler(req, res) {
+export default async function handler(req, res) {
 
     // Chech request method
     if(req.method !== 'POST') {
