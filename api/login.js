@@ -1,4 +1,4 @@
-import { client } from './database.js'; 
+import { pool } from './database.js'; 
 import bcrypt from 'bcrypt'; 
 
 // Handler function for the login api 
@@ -23,7 +23,7 @@ export async function handler(req, res) {
     try {
 
     // Retrieve the user's password from the database
-    const result = await client.query(
+    const result = await pool.query(
         'SELECT password FROM accounts WHERE username = $1', 
         [username]
     ); 
