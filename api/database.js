@@ -13,13 +13,4 @@ const pool = new Pool({
     }
 }); 
 
-export async function connect_to_db() {
-
-    try {
-        await pool.connect(); 
-        console.log('Connected to DB!'); 
-    } catch(error) {
-        console.error('Error connecting to DB! Error: ', error); 
-    }
-}
-
+export default pool; 
