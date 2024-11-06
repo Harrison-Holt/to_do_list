@@ -1,4 +1,4 @@
-import { pool } from './database.js'; 
+import pool  from './database.js'; 
 import bcrypt from 'bcrypt'; 
 
 // Handler Function for the registration api 
@@ -23,7 +23,7 @@ export async function handler(req, res) {
 
         // Insert the registration info into the dataase
         const result = await pool.query(
-            'INSERT accounts (username, email, password) VALUES (username = $1, email = $2, password = $3)', 
+            'INSERT INTO accounts (username, email, password) VALUES ($1, $2, $3)'
             [username, email, hashed_password]
         ); 
 
