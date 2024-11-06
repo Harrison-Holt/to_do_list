@@ -1,53 +1,34 @@
-import { client } from './database.js'; 
-import bcrypt from 'bcrypt'; 
 
-// Handler function for the login api 
-export async function handler(req, res) {
+document.getElementById("login_button").addEventListener('click', (event) => {
+    event.preventDefault(); 
 
-    // Chech request method
-    if(req.method !== 'POST') {
-        res.status(405).json({ message: 'Only POST Methods Allowed!'}); 
-        return; 
-    }
+    let username = document.getElementById("username").value; 
+    let password = document.getElementById("password").value; 
 
+    send_login_info(username, password); 
+}); 
 
-    // Retrieve info from request body  
-    const { username, password } = req.body; 
-
-    // Check if username or password is null or not 
-    if(!username || !password) {
-        res.status(400).json({ message: 'Username and Password Required!'}); 
-        return; 
-    }
+async function send_login_info(username, password) {
 
     try {
+        const response = await fetch('/api/login', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+            body: JSON.stringify({ username, password })
+        }); 
 
-    // Retrieve the user's password from the database
-    const result = await client.query(
-        'SELECT password FROM accounts WHERE username = $1', 
-        [username]
-    ); 
+        if(!response.ok) {
+            console.error(`Error Fetching Data: ${response.status}`); 
+            return; 
+        }
 
-    // Check if an user was found 
-    if(result.rows.length === 0) {
-        res.status(404). json({ message: 'User Not Found!'}); 
-        return; 
-    }
+        const result = await response.json(); 
+        console.log(result); 
 
-    const hashed_password = result.rows[0].password; 
-
-    // Compared the inputted password with the hashed password in the database
-    const password_matched = await bcrypt.compare(password, hashed_password); 
-
-    // Check if passwords match or not 
-    if(password_matched) {
-        res.status(200).json({ message: 'User Verified Successfuly!'}); 
-    } else {
-        res.status(401).json({ message: 'Password Invalid!'}); 
-    }
-    
+        window.location.href = './index.html'; 
     } catch(error) {
-        console.error('Error Verifying User! Error: ', error); 
-        res.status(500).json({ message: 'Internal Server Error! ', error: error.message}); 
+        console.error("Error Sending Data! Error: ", error); 
     }
 }
