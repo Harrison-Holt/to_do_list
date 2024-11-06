@@ -1,4 +1,4 @@
-import { client } from './database.mjs'; 
+import { client } from './database.js'; 
 import bcrypt from 'bcrypt'; 
 
 // Handler Function for the registration api 
