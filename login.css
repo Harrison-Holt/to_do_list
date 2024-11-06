@@ -1,0 +1,30 @@
+header, footer {
+    background-color: #3b4f63;
+}
+
+form {
+    background-color: #fff;
+    color: #000; 
+    padding: 25px; 
+    border-radius: 25%;
+    height: 750px;
+}  
+
+form h3 {
+    margin-top: 0; 
+    margin-bottom: 30px;
+}
+
+label {
+    margin-top: 10px; 
+}
+
+input {
+    margin: 5px;
+    width: 50%; 
+}
+
+#login_button, #register_button {
+    margin: 25px;
+    width: 50%; 
+}
