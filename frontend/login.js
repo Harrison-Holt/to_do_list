@@ -11,7 +11,7 @@ document.getElementById("login_button").addEventListener('click', (event) => {
 async function send_login_info(username, password) {
 
     try {
-        const response = await fetch('../api/login', {
+        const response = await fetch('/api/login', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'

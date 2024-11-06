@@ -1,6 +1,9 @@
 import { Client } from 'pg'; 
+import dotenv from 'dotenv'; 
 
-const connection_string = 'postgresql://neondb_owner:6oM8ReBmUqlV@ep-weathered-band-a5u1s0ti-pooler.us-east-2.aws.neon.tech/To_Do_List?sslmode=require'; 
+dotenv.config(); 
+
+const connection_string = process.env.CONNECTION_STRING; 
 
 const client = new Client({
     connection_string, 

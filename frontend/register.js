@@ -16,7 +16,7 @@ async function send_registration_info(username, email, password) {
     try {
         
         // Send the registration info to the api 
-        const response = await fetch('../api/register', {
+        const response = await fetch('/api/register', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
