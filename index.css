@@ -1,0 +1,40 @@
+body {
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #3A343F;
+    padding: 15px; 
+}
+
+.task_past_due {
+    background-color: red;
+    border: 2px solid white; 
+    padding: 15px; 
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.task_due_today {
+    background-color: #8B8000;
+    border: 2px solid white; 
+    padding: 15px; 
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.task_due_tomorrow {
+    background-color: blue;
+    border: 2px solid white; 
+    padding: 15px; 
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.task_due_later {
+    background-color: orange;
+    border: 2px solid white; 
+    padding: 15px; 
+    font-weight: bold;
+    border-radius: 50%;
+}
