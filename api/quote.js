@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'; 
 
 dotenv.config(); 
-
+const api_key = process.env.API_KEY
 export default async function handler(req, res) {
 
     if(req.method !== 'GET') {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     try {
         const response = await fetch('https://api.api-ninjas.com/v1/quotes?category=inspirational', {
             headers: {
-                'X-Api-Key': process.env.API_KEY
+                'X-Api-Key': api_key
             }
         })
 
