@@ -14,7 +14,7 @@ async function get_quote() {
         }
 
         const data = await response.json(); 
-        console.log(data); 
+        console.log(data[0]); 
 
         quote_container.innerHTML = `"${data[0].quote}" <br>
                                         - ${data[0].author}`; 
