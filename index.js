@@ -16,8 +16,12 @@ async function get_quote() {
         const data = await response.json(); 
         console.log(data); 
 
-        quote_container.innerHTML = `"${data.data[0].quote}" <br>
+        const p = document.createElement('p'); 
+
+        p.innerHTML = `"${data.data[0].quote}" <br>
                                         - ${data.data[0].author}`; 
+
+        quote_container.appendChild(p); 
     } catch(error) {
         console.error("Fetching Data!", error); 
         return; 
