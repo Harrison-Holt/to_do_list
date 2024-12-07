@@ -16,8 +16,8 @@ async function get_quote() {
         const data = await response.json(); 
         console.log(data); 
 
-        quote_container.innerHTML = `"${data.quote}" <br>
-                                        - ${data.author}`; 
+        quote_container.innerHTML = `"${data}" <br>
+                                        - ${data}`; 
     } catch(error) {
         console.error("Fetching Data!", error); 
         return; 
