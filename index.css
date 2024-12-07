@@ -6,6 +6,11 @@ header {
     background-color: #3A343F;
     padding: 15px; 
 }
+#quote_container {
+    border: 1px solid red;
+    background-color: white;
+    color: black;
+}
 
 .task_past_due {
     background-color: red;

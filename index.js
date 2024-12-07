@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', () => {
+
 const quote_container = document.getElementById('quote_container');
 
 async function get_quote() {
@@ -29,3 +31,4 @@ async function get_quote() {
 }
 
 get_quote(); 
+}); 
