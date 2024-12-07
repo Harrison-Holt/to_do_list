@@ -14,10 +14,10 @@ async function get_quote() {
         }
 
         const data = await response.json(); 
-        console.log(data[0]); 
+        console.log(data); 
 
-        quote_container.innerHTML = `"${data[0].quote}" <br>
-                                        - ${data[0].author}`; 
+        quote_container.innerHTML = `"${data.quote}" <br>
+                                        - ${data.author}`; 
     } catch(error) {
         console.error("Fetching Data!", error); 
         return; 
